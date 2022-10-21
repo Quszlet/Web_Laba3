@@ -18,8 +18,15 @@ public class Trucks  extends Vehicle {
         return this.number_of_axes;
     }
 
-    public String getTrailer(){
+    public String getClass_type(){
         return this.class_type;
+    }
+
+    public void setNumber_of_axes(String value) {
+        this.number_of_axes = value;
+    }
+    public void setClass_type(String value) {
+        this.class_type = value;
     }
     @Override
     public String information() {
@@ -27,4 +34,5 @@ public class Trucks  extends Vehicle {
                 + this.year_of_release + "; mileage = " + this.mileage + "; reg_number = " + this.reg_number
                 + "; number_of_axes = " + this.number_of_axes + "; class_type = " + this.class_type + "}";
     }
+
 }

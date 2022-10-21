@@ -19,8 +19,16 @@ public class Car extends Vehicle {
         return this.car_body;
     }
 
-    public String getTires(){
+    public String getPower_steering(){
         return this.power_steering;
+    }
+
+    public void setCar_body(String value) {
+        this.car_body = value;
+    }
+
+    public void setPower_steering(String value) {
+        this.power_steering = value;
     }
 
     @Override
@@ -29,5 +37,4 @@ public class Car extends Vehicle {
                 + "; mileage = " + this.mileage + "; reg_number = " + this.reg_number + "; car_body = " + this.car_body
                 + "; power_steering = " + this.power_steering + "}";
     }
-
 }

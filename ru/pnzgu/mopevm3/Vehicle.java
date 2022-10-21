@@ -128,6 +128,10 @@ public abstract class Vehicle {
                             return obj.information();
                         case "brand":
                         case "reg_number":
+                        case "class_type":
+                        case "number_of_axes":
+                        case "power_steering":
+                        case "car_body":
                             return ("Ошибка. Этому полю не может быть присвоенно числовое значение");
                         default:
                             return ("Ошибка. Такого поля нет");
@@ -140,6 +144,14 @@ public abstract class Vehicle {
                         case "reg_number":
                             obj.setReg_number(value);
                             return obj.information();
+                        case "class_type":
+                            return obj.setType(obj, value);
+                        case "number_of_axes":
+                            return obj.setNumb_of_axes(obj, value);
+                        case "power_steering":
+                            return obj.setPower_steering(obj, value);
+                        case "car_body":
+                            return obj.setCar_body(obj, value);
                         case "price":
                         case "year_of_release":
                         case "mileage":
@@ -159,4 +171,35 @@ public abstract class Vehicle {
             System.out.println(obj.information());
         }
     }
+    private String setType(Vehicle obj, String value) {
+        if(obj instanceof Trucks) {
+            ((Trucks) obj).setClass_type(value);
+            return obj.information();
+        }
+        else return ("Ошибка. Такого поля нет");
+    }
+
+    private String setNumb_of_axes(Vehicle obj, String value) {
+        if(obj instanceof Trucks) {
+            ((Trucks) obj).setNumber_of_axes(value);
+            return obj.information();
+        }
+        else return ("Ошибка. Такого поля нет");
+    }
+    private String setCar_body(Vehicle obj, String value) {
+        if(obj instanceof Car) {
+            ((Car) obj).setCar_body(value);
+            return obj.information();
+        }
+        else return ("Ошибка. Такого поля нет");
+    }
+
+    private String setPower_steering(Vehicle obj, String value) {
+        if(obj instanceof Car) {
+            ((Car) obj).setPower_steering(value);
+            return obj.information();
+        }
+        else return ("Ошибка. Такого поля нет");
+    }
+
 }
