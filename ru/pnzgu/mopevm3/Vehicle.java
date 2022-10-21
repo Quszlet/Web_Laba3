@@ -14,6 +14,8 @@ public abstract class Vehicle {
     protected int year_of_release;
     static private ArrayList<Vehicle> Vehicle_arr = new ArrayList<>();
 
+    public  abstract String information();
+
     public static void AddArray(Vehicle object){
         Vehicle_arr.add(object);
     }
@@ -38,6 +40,10 @@ public abstract class Vehicle {
         return this.reg_number;
     }
 
+    public String getBrand(){
+        return this.brand;
+    }
+
     public void setBrand(String brand){
         this.brand = brand;
     }
@@ -58,17 +64,16 @@ public abstract class Vehicle {
         this.year_of_release = year;
     }
 
-    public abstract void fi(String name);
-
-
-    public static int most_lowed_cost(){
+    public static String most_lowed_cost(){
         int min_elem = Vehicle_arr.get(0).getPrice();
+        String name = Vehicle_arr.get(0).getBrand();
         for(Vehicle elem: Vehicle_arr){
             if (elem.getPrice() < min_elem){
                 min_elem = elem.getPrice();
+                name = elem.getBrand();
             }
         }
-        return min_elem;
+        return name;
     }
 
     public static int most_high_mileage(){
@@ -93,14 +98,13 @@ public abstract class Vehicle {
         return year_arr;
     }
 
-    public static String find_and_edit(String number) {
-        String regex = "^[АВЕКМНОРСТУХ][0-9]{3}[АВЕКМНОРСТУХ]{2}$";
-
-        if (!Pattern.matches(regex, number)) {
-            return ("Вводимое значение не соотвествует регистрационному номеру!");
-        }
+    public static String find_and_edit() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Какой объект вы хотите изменить? Для выбора введите регистрационный номер");
+        String number = scanner.next();
+        System.out.println("Какое поле вы хотите изменить?");
         String field = scanner.next();
+        System.out.println("Введите новое значение");
         String value = scanner.next();
         scanner.close();
 
@@ -122,8 +126,11 @@ public abstract class Vehicle {
                         case "mileage":
                             obj.setMileage(intValue);
                             return obj.information();
+                        case "brand":
+                        case "reg_number":
+                            return ("Ошибка. Этому полю не может быть присвоенно числовое значение");
                         default:
-                            return ("Ошибка. Нужно вводить строковое значение");
+                            return ("Ошибка. Такого поля нет");
                     }
                 } else {
                     switch (field) {
@@ -133,8 +140,12 @@ public abstract class Vehicle {
                         case "reg_number":
                             obj.setReg_number(value);
                             return obj.information();
+                        case "price":
+                        case "year_of_release":
+                        case "mileage":
+                            return ("Ошибка. Этому полю не может быть присвоенно строкове значение");
                         default:
-                            return ("Ошибка. Нужно вводить числовые значения");
+                            return ("Ошибка. Такого поля нет");
                     }
                 }
             }
@@ -142,8 +153,10 @@ public abstract class Vehicle {
         return ("Такого регистрационного номера нет!");
     }
 
-    public String information() {
-        return "\n Cupboard={brand=" + this.brand + "; price=" + price + "; year of release=" + this.year_of_release
-                + "; mileage=" + this.mileage + "; reg number=" + this.reg_number + "}";
+    public static void informationAll() {
+        System.out.print("Объекты:");
+        for (Vehicle obj: Vehicle_arr) {
+            System.out.println(obj.information());
+        }
     }
 }

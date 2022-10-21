@@ -21,16 +21,10 @@ public class Trucks  extends Vehicle {
     public String getTrailer(){
         return this.class_type;
     }
-
     @Override
-    public void fi(String name) {
-
-    }
-
     public String information() {
-        return "\n Cupboard={brand=" + this.brand + "; price=" + price + "; year of release=" + this.year_of_release
-                + "; mileage=" + this.mileage + "; reg number=" + this.reg_number
-                + "; number of axes=" + this.number_of_axes
-                + "class_type=" + this.class_type + "}";
+        return "\n Trucks = { brand = " + this.brand + "; price = " + price + "; year_of_release = "
+                + this.year_of_release + "; mileage = " + this.mileage + "; reg_number = " + this.reg_number
+                + "; number_of_axes = " + this.number_of_axes + "; class_type = " + this.class_type + "}";
     }
 }
