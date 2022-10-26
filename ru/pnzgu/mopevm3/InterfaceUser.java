@@ -4,10 +4,15 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class InterfaceUser {
+    /*
+     * Эта функция выводит в консоль номер лабораторной работы, номер бригады,
+     * студентов состоящих в бригаде, задание, предметную область.
+     */
     public static void print_intro(){
         System.out.println("ЛР3. ООП");
         System.out.println("Бригада №3. Изгарев.В & Копылов.Е\n");
-        System.out.println("Необходимо реализовать в рамках объектноориентированной парадигмы на языке Java предложенные варианты заданий.\n" +
+        System.out.println("Необходимо реализовать в рамках объектноориентированной парадигмы на языке Java " +
+                "предложенные варианты заданий.\n" +
                 "Реализовать иерархию минимум из 3 классов. Каждый класс должен" +
                 "иметь в своем составе минимум 5 полей и 3 метода.\n" +
                 "Выполнить анализ предметной области. Спроектировать и реализовать" +
@@ -22,6 +27,10 @@ public class InterfaceUser {
                 "редактирования\n");
     }
 
+    /*
+     *  Эта функция выводит в консоль все возможные функции, которые
+     *  программа может реализовать.
+     */
     public static void input_user(){
         Scanner in = new Scanner(System.in);
         String value = "";
@@ -39,6 +48,10 @@ public class InterfaceUser {
         }
     }
 
+    /*
+     *  Функция принимает номер, введенным пользователем, и в соотвествием с номером
+     *  реализовывает соответствующию функцию
+     */
     private static void choose_function(String number) {
         switch (number) {
             case "1":
@@ -106,6 +119,7 @@ public class InterfaceUser {
                         System.out.println("Ошибка. Такого объекта с таким номером нет!");
                         break;
                 }
+                break;
             case "exit":
                 System.out.println("Вы вышли из программы!");
                 break;
@@ -115,6 +129,10 @@ public class InterfaceUser {
         }
     }
 
+    /*
+     *  Функция проверяет вводимое значение пользователем и заставляет вводить
+     *  пользователя строковое значения, пока он его не введет.
+     */
     public static String check_input_string(String value){
         Scanner in = new Scanner(System.in);
         String regex = "^[a-zA-Zа-яА-Я]*$";
@@ -125,6 +143,10 @@ public class InterfaceUser {
         return value;
     }
 
+    /*
+     *  Функция проверяет вводимое значение пользователем и заставляет вводить
+     *  пользователя числовое значение, пока он его не введет.
+     */
     public static int check_input_int(String value){
         Scanner in = new Scanner(System.in);
         String regex = "^\\d*$";
