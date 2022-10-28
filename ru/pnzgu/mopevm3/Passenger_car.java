@@ -1,19 +1,19 @@
 package ru.pnzgu.mopevm3;
 
-public class Car extends Vehicle {
+public class Passenger_car extends Vehicle {
 
     private String car_body; // Тип кузова
     private String power_steering; // Тип рулевого усилителя
 
     // Конструкто по умолчанию
-    public Car(){
+    public Passenger_car(){
         super();
         this.car_body = null;
         this.power_steering = null;
     }
 
     // Конструктор с параметрами
-    public Car(String brand, int price, int year, int mileage, String reg_number, String body, String power_steering){
+    public Passenger_car(String brand, int price, int year, int mileage, String reg_number, String body, String power_steering){
         super(brand, price, year, mileage, reg_number);
         this.car_body = body;
         this.power_steering = power_steering;
@@ -42,7 +42,7 @@ public class Car extends Vehicle {
     // Переопределенная функция, которая возвращает в строковом виде всю информацию об объекте
     @Override
     public String information() {
-        return "\n Car = {brand = " + this.brand + "; price = " + price + "; year_of_release = " + this.year_of_release
+        return "\n Passenger_car = {brand = " + this.brand + "; price = " + price + "; year_of_release = " + this.year_of_release
                 + "; mileage = " + this.mileage + "; reg_number = " + this.reg_number + "; car_body = " + this.car_body
                 + "; power_steering = " + this.power_steering + "}";
     }

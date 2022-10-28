@@ -72,7 +72,7 @@ public class InterfaceUser {
             case "6":
                 Scanner in = new Scanner(System.in);
                 System.out.println("Выберите цифру объект\n" +
-                        "1: Car\n" + "2: Trucks\n");
+                        "1: Passenger_car\n" + "2: Trucks\n");
                 String input = in.next();
                 switch (input) {
                     case "1":
@@ -90,7 +90,8 @@ public class InterfaceUser {
                         String car_body = check_input_string(in.next());
                         System.out.println("Введите значение для поля 'power_steering':");
                         String power_steering = check_input_string(in.next());
-                        Car New_onj = new Car(brand, price, year, mileage, reg_number, car_body, power_steering);
+                        Passenger_car New_onj = new Passenger_car(brand, price, year, mileage, reg_number,
+                                car_body, power_steering);
                         Vehicle.AddArray(New_onj);
                         System.out.println("Вы создали новый объект Car!");
                         Vehicle.informationAll();

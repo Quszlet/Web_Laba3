@@ -215,8 +215,8 @@ public abstract class Vehicle {
 
     // Функция устанавливает новое значение поля car_body у класса наследника Car
     private String setCar_body(Vehicle obj, String value) {
-        if(obj instanceof Car) {
-            ((Car) obj).setCar_body(value);
+        if(obj instanceof Passenger_car) {
+            ((Passenger_car) obj).setCar_body(value);
             return obj.information();
         }
         else return ("Ошибка. Такого поля нет");
@@ -224,8 +224,8 @@ public abstract class Vehicle {
 
     // Функция устанавливает новое значение поля power_steering у класса наследника Car
     private String setPower_steering(Vehicle obj, String value) {
-        if(obj instanceof Car) {
-            ((Car) obj).setPower_steering(value);
+        if(obj instanceof Passenger_car) {
+            ((Passenger_car) obj).setPower_steering(value);
             return obj.information();
         }
         else return ("Ошибка. Такого поля нет");
